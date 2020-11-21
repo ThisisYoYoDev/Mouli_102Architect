@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 rm -f saveres
 FAILED=0
 vertclair='\e[1;32m'
