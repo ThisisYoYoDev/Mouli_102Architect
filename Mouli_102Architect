@@ -1,0 +1,466 @@
+rm -f saveres
+FAILED=0
+vertclair='\e[1;32m'
+rougefonce='\e[0;31m'
+neutre='\e[0;m'
+cyanclair='\e[1;36m'
+echo -e "${vertclair}Debut des tests de rigeur : "
+./102architect &> /dev/null
+if [ "$?" -eq 84 ]
+then
+    echo -e "${cyanclair}1a-no arguments \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}1a-no arguments \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 1 &> /dev/null
+if [ "$?" -eq 84 ]
+then
+    echo -e "${cyanclair}1b-not enough arguments \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}1b-not enough arguments \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 1 0 -a 5 0 &> /dev/null
+if [ "$?" -eq 84 ]
+then
+    echo -e "${cyanclair}1c-incorrect arguments 1 \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}1c-incorrect arguments 1 \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 1 0 -t 5 0 -a 5 0 &> /dev/null
+if [ "$?" -eq 84 ]
+then
+    echo -e "${cyanclair}1d-incorrect arguments 2 \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}1d-incorrect arguments 2 \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 1 0 -t 5 0 -z 5 0 -a 90 &> /dev/null
+if [ "$?" -eq 84 ]
+then
+    echo -e "${cyanclair}1e-incorrect arguments 3 \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}1e-incorrect arguments 3 \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 1 0 -t 5 0 0 &> /dev/null
+if [ "$?" -eq 84 ]
+then
+    echo -e "${cyanclair}1f-too many argments -t \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}1f-too many argments -t \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 1 0 -t 5 &> /dev/null
+if [ "$?" -eq 84 ]
+then
+    echo -e "${cyanclair}1g-not enough arguments -t \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}1g-not enough arguments -t \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 1 0 -t a b &> /dev/null
+if [ "$?" -eq 84 ]
+then
+    echo -e "${cyanclair}1h-incorrect arguments -t \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}1h-incorrect arguments -t \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 1 0 -z 5 0 0 &> /dev/null
+if [ "$?" -eq 84 ]
+then
+    echo -e "${cyanclair}1i-too many argments -z \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}1i-too many argments -z \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 1 0 -z 5 &> /dev/null
+if [ "$?" -eq 84 ]
+then
+    echo -e "${cyanclair}1j-not enough arguments -z \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}1j-not enough arguments -z \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 1 0 -z a b &> /dev/null
+if [ "$?" -eq 84 ]
+then
+    echo -e "${cyanclair}1k-incorrect arguments -z \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}1k-incorrect arguments -z \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 1 0 -r 5 0 &> /dev/null
+if [ "$?" -eq 84 ]
+then
+    echo -e "${cyanclair}1l-too many argments -r \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}1l-too many argments -r \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 1 0 -r &> /dev/null
+if [ "$?" -eq 84 ]
+then
+    echo -e "${cyanclair}1m-not enough arguments -r \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}1m-not enough arguments -r \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 1 0 -r a &> /dev/null
+if [ "$?" -eq 84 ]
+then
+    echo -e "${cyanclair}1n-incorrect arguments -r \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}1n-incorrect arguments -r \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 1 0 -s &> /dev/null
+if [ "$?" -eq 84 ]
+then
+    echo -e "${cyanclair}1o-not enough arguments -s \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}1o-not enough arguments -s \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 1 0 -s 5 0 &> /dev/null
+if [ "$?" -eq 84 ]
+then
+    echo -e "${cyanclair}1o-too many argments -s \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}1o-too many argments -s \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 1 0 -s a &> /dev/null
+if [ "$?" -eq 84 ]
+then
+    echo -e "${cyanclair}1q-incorrect arguments -s \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}1q-incorrect arguments -s \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 1 0 -t 5 0 &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}1r-output instructions -t \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}1r-output instructions -t \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 1 0 -z 5 0 &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}1s-output instructions -z \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}1s-output instructions -z \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 1 0 -r 5 &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}1t-output instructions -r \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}1t-output instructions -r \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 1 0 -s 5 &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}1u-output instructions -s \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}1u-output instructions -s \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 1 0 -t 5 0 -z 5 0 -r 5 -s 5 &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}1v-output instructions full \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}1v-output instructions full \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+echo -e "${vertclair}Fin des tests de rigeur."
+echo -e ""
+echo -e "${vertclair}Debut des tests de transformation matrices : "
+
+./102architect 0 1 -t 5 5 &> saveres
+diff tests/result_output/2a-translation saveres &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}2a-translation (y axis) \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}2a-translation (y axis) \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 1 0 -t 5 5 &> saveres
+diff tests/result_output/2b-translation saveres &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}2b-translation (x axis) \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}2b-translation (x axis) \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 5 5 -t 5 5 &> saveres
+diff tests/result_output/2c-translation saveres &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}2c-translation \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}2c-translation \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 0 1 -z 5 5 &> saveres
+diff tests/result_output/2d-scaling saveres &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}2d-scaling (y axis) \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}2d-scaling (y axis) \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 1 0 -z 5 5 &> saveres
+diff tests/result_output/2e-scaling saveres &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}2e-scaling (x axis) \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}2e-scaling (x axis) \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 5 5 -z 5 5 &> saveres
+diff tests/result_output/2f-scaling saveres &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}2f-scaling \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}2f-scaling \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 0 1 -r 45 &> saveres
+diff tests/result_output/2g-45 saveres &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}2g-45 degree rotation \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}2g-45 degree rotation \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 1 0 -r -60 &> saveres
+diff tests/result_output/2h--60 saveres &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}2h--60 degree rotation \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}2h--60 degree rotation \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 5 5 -r 620 &> saveres
+diff tests/result_output/2i-620 saveres &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}2i-620 degree rotation \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}2i-620 degree rotation \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 0 1 -s 45 &> saveres
+diff tests/result_output/2j-45 saveres &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}2j-45 degree rotation \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}2j-45 degree rotation \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 1 0 -s -60 &> saveres
+diff tests/result_output/2k--60 saveres &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}2k--60 degree rotation \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}2k--60 degree rotation \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 5 5 -s 620 &> saveres
+diff tests/result_output/2l-620 saveres &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}2l-620 degree rotation \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}2l-620 degree rotation \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+echo -e "${vertclair}Fin des tests de transformation matrice."
+echo -e ""
+
+echo -e "${vertclair}Debut des tests de matrix product : "
+
+./102architect 5 5 -t 15 12 -z 32 54 &> saveres
+diff tests/result_output/3a-mat1 saveres &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}3a-mat1 \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}3a-mat1 \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 5 5 -z 15 12 -s 32 &> saveres
+diff tests/result_output/3b-mat1 saveres &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}3b-mat1 \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}3b-mat1 \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 5 5 -r 15 -s 32 &> saveres
+diff tests/result_output/3c-mat1 saveres &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}3c-mat1 \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}3c-mat1 \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 5 5 -t 15 8 -s 32 &> saveres
+diff tests/result_output/3d-mat1 saveres &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}3d-mat1 \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}3d-mat1 \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 5 5 -t 15 8 -r 32 &> saveres
+diff tests/result_output/3e-mat1 saveres &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}3e-mat1 \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}3e-mat1 \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 5 5 -z 15 8 -r 32 &> saveres
+diff tests/result_output/3f-mat1 saveres &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}3f-mat1 \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}3f-mat1 \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+echo -e "${vertclair}Fin des tests de matrix product."
+echo -e ""
+
+echo -e "${vertclair}Debut des tests de complex transformations : "
+
+./102architect 5 5 -t 15 8 -z 32 21 -r 90 -s 35 &> saveres
+diff tests/result_output/4a-complex saveres &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}4a-complex \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}4a-complex \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 5 5 -s 15 -r 32 -z 90 10 -t 35 10 &> saveres
+diff tests/result_output/4b-complex saveres &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}4b-complex \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}4b-complex \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 5 5 -z 15  57 -t 32 23 -r 90 -s 35 &> saveres
+diff tests/result_output/4c-complex saveres &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}4c-complex \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}4c-complex \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 5 5 -t 15  57 -z 32 23 -r 90 -s 35 &> saveres
+diff tests/result_output/4d-complex saveres &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}4d-complex \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}4d-complex \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 5 5 -r 57 -s 23 -t 10 12 -z 24 35 &> saveres
+diff tests/result_output/4e-complex saveres &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}4e-complex \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}4e-complex \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+./102architect 554554 57845216 -r 342685 -s 23324683 -t 101565 1454812 -z 2451244 4965535 &> saveres
+diff tests/result_output/4f-complex saveres &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    echo -e "${cyanclair}4f-complex \t\e[32mPASSED\e[39m"
+else
+    echo -e "${cyanclair}4f-complex \t\e[91mFAIL\e[39m"
+    FAILED=1
+fi
+
+echo -e ""
+
+violetclair='\e[1;35m'
+echo -e "${violetclair}By Yoel Enjoy <3"
+echo -e "${neutre}"
+rm -f saveres
+exit $FAILED
