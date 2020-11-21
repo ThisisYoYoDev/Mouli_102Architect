@@ -210,7 +210,7 @@ echo -e ""
 echo -e "${vertclair}Debut des tests de transformation matrices : "
 
 ./102architect 0 1 -t 5 5 &> saveres
-diff tests/result_output/2a-translation saveres &> /dev/null
+diff result_output/2a-translation saveres &> /dev/null
 if [ "$?" -eq 0 ]
 then
     echo -e "${cyanclair}2a-translation (y axis) \t\e[32mPASSED\e[39m"
@@ -220,7 +220,7 @@ else
 fi
 
 ./102architect 1 0 -t 5 5 &> saveres
-diff tests/result_output/2b-translation saveres &> /dev/null
+diff result_output/2b-translation saveres &> /dev/null
 if [ "$?" -eq 0 ]
 then
     echo -e "${cyanclair}2b-translation (x axis) \t\e[32mPASSED\e[39m"
@@ -230,7 +230,7 @@ else
 fi
 
 ./102architect 5 5 -t 5 5 &> saveres
-diff tests/result_output/2c-translation saveres &> /dev/null
+diff result_output/2c-translation saveres &> /dev/null
 if [ "$?" -eq 0 ]
 then
     echo -e "${cyanclair}2c-translation \t\e[32mPASSED\e[39m"
@@ -240,7 +240,7 @@ else
 fi
 
 ./102architect 0 1 -z 5 5 &> saveres
-diff tests/result_output/2d-scaling saveres &> /dev/null
+diff result_output/2d-scaling saveres &> /dev/null
 if [ "$?" -eq 0 ]
 then
     echo -e "${cyanclair}2d-scaling (y axis) \t\e[32mPASSED\e[39m"
@@ -250,7 +250,7 @@ else
 fi
 
 ./102architect 1 0 -z 5 5 &> saveres
-diff tests/result_output/2e-scaling saveres &> /dev/null
+diff result_output/2e-scaling saveres &> /dev/null
 if [ "$?" -eq 0 ]
 then
     echo -e "${cyanclair}2e-scaling (x axis) \t\e[32mPASSED\e[39m"
@@ -260,7 +260,7 @@ else
 fi
 
 ./102architect 5 5 -z 5 5 &> saveres
-diff tests/result_output/2f-scaling saveres &> /dev/null
+diff result_output/2f-scaling saveres &> /dev/null
 if [ "$?" -eq 0 ]
 then
     echo -e "${cyanclair}2f-scaling \t\e[32mPASSED\e[39m"
@@ -270,7 +270,7 @@ else
 fi
 
 ./102architect 0 1 -r 45 &> saveres
-diff tests/result_output/2g-45 saveres &> /dev/null
+diff result_output/2g-45 saveres &> /dev/null
 if [ "$?" -eq 0 ]
 then
     echo -e "${cyanclair}2g-45 degree rotation \t\e[32mPASSED\e[39m"
@@ -280,7 +280,7 @@ else
 fi
 
 ./102architect 1 0 -r -60 &> saveres
-diff tests/result_output/2h--60 saveres &> /dev/null
+diff result_output/2h--60 saveres &> /dev/null
 if [ "$?" -eq 0 ]
 then
     echo -e "${cyanclair}2h--60 degree rotation \t\e[32mPASSED\e[39m"
@@ -290,7 +290,7 @@ else
 fi
 
 ./102architect 5 5 -r 620 &> saveres
-diff tests/result_output/2i-620 saveres &> /dev/null
+diff result_output/2i-620 saveres &> /dev/null
 if [ "$?" -eq 0 ]
 then
     echo -e "${cyanclair}2i-620 degree rotation \t\e[32mPASSED\e[39m"
@@ -300,7 +300,7 @@ else
 fi
 
 ./102architect 0 1 -s 45 &> saveres
-diff tests/result_output/2j-45 saveres &> /dev/null
+diff result_output/2j-45 saveres &> /dev/null
 if [ "$?" -eq 0 ]
 then
     echo -e "${cyanclair}2j-45 degree rotation \t\e[32mPASSED\e[39m"
@@ -310,7 +310,7 @@ else
 fi
 
 ./102architect 1 0 -s -60 &> saveres
-diff tests/result_output/2k--60 saveres &> /dev/null
+diff result_output/2k--60 saveres &> /dev/null
 if [ "$?" -eq 0 ]
 then
     echo -e "${cyanclair}2k--60 degree rotation \t\e[32mPASSED\e[39m"
@@ -320,7 +320,7 @@ else
 fi
 
 ./102architect 5 5 -s 620 &> saveres
-diff tests/result_output/2l-620 saveres &> /dev/null
+diff result_output/2l-620 saveres &> /dev/null
 if [ "$?" -eq 0 ]
 then
     echo -e "${cyanclair}2l-620 degree rotation \t\e[32mPASSED\e[39m"
@@ -335,7 +335,7 @@ echo -e ""
 echo -e "${vertclair}Debut des tests de matrix product : "
 
 ./102architect 5 5 -t 15 12 -z 32 54 &> saveres
-diff tests/result_output/3a-mat1 saveres &> /dev/null
+diff result_output/3a-mat1 saveres &> /dev/null
 if [ "$?" -eq 0 ]
 then
     echo -e "${cyanclair}3a-mat1 \t\e[32mPASSED\e[39m"
@@ -345,7 +345,7 @@ else
 fi
 
 ./102architect 5 5 -z 15 12 -s 32 &> saveres
-diff tests/result_output/3b-mat1 saveres &> /dev/null
+diff result_output/3b-mat1 saveres &> /dev/null
 if [ "$?" -eq 0 ]
 then
     echo -e "${cyanclair}3b-mat1 \t\e[32mPASSED\e[39m"
@@ -355,7 +355,7 @@ else
 fi
 
 ./102architect 5 5 -r 15 -s 32 &> saveres
-diff tests/result_output/3c-mat1 saveres &> /dev/null
+diff result_output/3c-mat1 saveres &> /dev/null
 if [ "$?" -eq 0 ]
 then
     echo -e "${cyanclair}3c-mat1 \t\e[32mPASSED\e[39m"
@@ -365,7 +365,7 @@ else
 fi
 
 ./102architect 5 5 -t 15 8 -s 32 &> saveres
-diff tests/result_output/3d-mat1 saveres &> /dev/null
+diff result_output/3d-mat1 saveres &> /dev/null
 if [ "$?" -eq 0 ]
 then
     echo -e "${cyanclair}3d-mat1 \t\e[32mPASSED\e[39m"
@@ -375,7 +375,7 @@ else
 fi
 
 ./102architect 5 5 -t 15 8 -r 32 &> saveres
-diff tests/result_output/3e-mat1 saveres &> /dev/null
+diff result_output/3e-mat1 saveres &> /dev/null
 if [ "$?" -eq 0 ]
 then
     echo -e "${cyanclair}3e-mat1 \t\e[32mPASSED\e[39m"
@@ -385,7 +385,7 @@ else
 fi
 
 ./102architect 5 5 -z 15 8 -r 32 &> saveres
-diff tests/result_output/3f-mat1 saveres &> /dev/null
+diff result_output/3f-mat1 saveres &> /dev/null
 if [ "$?" -eq 0 ]
 then
     echo -e "${cyanclair}3f-mat1 \t\e[32mPASSED\e[39m"
@@ -400,7 +400,7 @@ echo -e ""
 echo -e "${vertclair}Debut des tests de complex transformations : "
 
 ./102architect 5 5 -t 15 8 -z 32 21 -r 90 -s 35 &> saveres
-diff tests/result_output/4a-complex saveres &> /dev/null
+diff result_output/4a-complex saveres &> /dev/null
 if [ "$?" -eq 0 ]
 then
     echo -e "${cyanclair}4a-complex \t\e[32mPASSED\e[39m"
@@ -410,7 +410,7 @@ else
 fi
 
 ./102architect 5 5 -s 15 -r 32 -z 90 10 -t 35 10 &> saveres
-diff tests/result_output/4b-complex saveres &> /dev/null
+diff result_output/4b-complex saveres &> /dev/null
 if [ "$?" -eq 0 ]
 then
     echo -e "${cyanclair}4b-complex \t\e[32mPASSED\e[39m"
@@ -420,7 +420,7 @@ else
 fi
 
 ./102architect 5 5 -z 15  57 -t 32 23 -r 90 -s 35 &> saveres
-diff tests/result_output/4c-complex saveres &> /dev/null
+diff result_output/4c-complex saveres &> /dev/null
 if [ "$?" -eq 0 ]
 then
     echo -e "${cyanclair}4c-complex \t\e[32mPASSED\e[39m"
@@ -430,7 +430,7 @@ else
 fi
 
 ./102architect 5 5 -t 15  57 -z 32 23 -r 90 -s 35 &> saveres
-diff tests/result_output/4d-complex saveres &> /dev/null
+diff result_output/4d-complex saveres &> /dev/null
 if [ "$?" -eq 0 ]
 then
     echo -e "${cyanclair}4d-complex \t\e[32mPASSED\e[39m"
@@ -440,7 +440,7 @@ else
 fi
 
 ./102architect 5 5 -r 57 -s 23 -t 10 12 -z 24 35 &> saveres
-diff tests/result_output/4e-complex saveres &> /dev/null
+diff result_output/4e-complex saveres &> /dev/null
 if [ "$?" -eq 0 ]
 then
     echo -e "${cyanclair}4e-complex \t\e[32mPASSED\e[39m"
@@ -450,7 +450,7 @@ else
 fi
 
 ./102architect 554554 57845216 -r 342685 -s 23324683 -t 101565 1454812 -z 2451244 4965535 &> saveres
-diff tests/result_output/4f-complex saveres &> /dev/null
+diff result_output/4f-complex saveres &> /dev/null
 if [ "$?" -eq 0 ]
 then
     echo -e "${cyanclair}4f-complex \t\e[32mPASSED\e[39m"
