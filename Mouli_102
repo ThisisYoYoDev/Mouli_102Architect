@@ -30,13 +30,13 @@ test()
     ./102architect $1 &> saveres
     if [ $4 -eq "1" ] 
     then
-        diff result_output/$2 saveres &> /dev/null
+        diff Mouli_102Architect/result_output/$2 saveres &> /dev/null
         if [ "$?" -eq $3 ]
         then
             echo -e "${violetclair}TEST  :  ${cyanclair}$2\t\e[32mPASSED\e[39m"
         else
             echo -e "${violetclair}TEST  :  ${cyanclair}$2\t\e[91mFAIL\e[39m"
-            diff result_output/$2 saveres &> Mouli_102Architect/diff_result/$5
+            diff Mouli_102Architect/result_output/$2 saveres &> Mouli_102Architect/diff_result/$5
             EXIT=1
             echo -e "${jaune}Do you Want to see diff (y/n)${blanc}"
             read see_diff
@@ -44,7 +44,7 @@ test()
             then
                 cat Mouli_102Architect/diff_result/$5
                 echo "" >> Mouli_102Architect/diff_result/$5
-                diff -y result_output/$2 saveres >> Mouli_102Architect/diff_result/$5
+                diff -y Mouli_102Architect/result_output/$2 saveres >> Mouli_102Architect/diff_result/$5
                 echo -e "${jaune}Result save in Mouli_102Architect/diff_result/$5"
             fi
         fi
