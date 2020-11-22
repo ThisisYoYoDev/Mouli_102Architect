@@ -3,7 +3,7 @@
 How to use :
 #### git clone https://github.com/ThisisYoYoDev/Mouli_102Architect.git
 
-Add your executable in the folder and launch "./Mouli_102"
+git clone and launch "./Mouli_102Architect/Mouli_102"
 
 Support C and Python3
 
